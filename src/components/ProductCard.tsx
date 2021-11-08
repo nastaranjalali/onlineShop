@@ -9,17 +9,16 @@ import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import samplePhoto from "../assets/samplePhoto.jpg";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles({
-  root: {
-    width: "100%",
-  },
+  root: { padding: "10px 15px" },
   card: {
-    maxWidth: 345,
+    width: "100%",
   },
   media: {
     height: 0,
-    paddingTop: "90.25%", // 16:9
+    paddingTop: "100%", // 16:9
   },
 
   avatar: {
@@ -29,7 +28,7 @@ const useStyles = makeStyles({
 function ProductCard() {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <Grid item xs={12} sm={6} md={4} lg={3} className={classes.root}>
       <Card className={classes.card}>
         <CardHeader
           action={
@@ -38,7 +37,6 @@ function ProductCard() {
             </IconButton>
           }
           title="Sample title"
-          subheader="Subheader"
         />
         <CardMedia
           className={classes.media}
@@ -46,18 +44,16 @@ function ProductCard() {
           title="Paella dish"
         />
         <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body1" color="textSecondary" component="p">
             This is a sample discription of a product
           </Typography>
+
           <Typography variant="body2" color="textSecondary" component="p">
-            Price
-          </Typography>
-          <Typography variant="body1" color="textSecondary" component="p">
-            20,000
+            price : 20,000
           </Typography>
         </CardContent>
       </Card>
-    </div>
+    </Grid>
   );
 }
 

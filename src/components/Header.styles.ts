@@ -89,6 +89,10 @@ const useStyles = makeStyles({
       backgroundColor: "#444",
     },
   },
+  rightNav: {
+    display: "flex",
+    flexDirection: "row",
+  },
 });
 
 export default useStyles;

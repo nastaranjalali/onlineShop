@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import IconButton from "@material-ui/core/IconButton";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { Grid, Link, Typography } from "@material-ui/core";
 import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
@@ -46,15 +45,30 @@ export const Header: FC<Props> = ({ toggle }) => {
             </IconButton>
           </Grid>
         </Grid>
-
-        <Grid>
-          <Link underline="none" href="#" className={classes.profilelink}>
-            <Typography className={classes.usersname} variant="body2">
-              user's name goes here
-            </Typography>
-            <AccountCircleRoundedIcon className={classes.cartIcon} />
-          </Link>
-        </Grid>
+        {localStorage.getItem("token") ? (
+          <Grid>
+            <Link underline="none" href="#" className={classes.profilelink}>
+              <Typography className={classes.usersname} variant="body2">
+                user's name goes here
+              </Typography>
+              <AccountCircleRoundedIcon className={classes.cartIcon} />
+            </Link>
+          </Grid>
+        ) : (
+          <Grid className={classes.rightNav}>
+            <Link underline="none" href="#" className={classes.profilelink}>
+              <Typography className={classes.usersname} variant="body2">
+                Sign Up
+              </Typography>
+            </Link>
+            <b style={{ marginRight: 10 }}>/</b>
+            <Link underline="none" href="#" className={classes.profilelink}>
+              <Typography className={classes.usersname} variant="body2">
+                Login
+              </Typography>
+            </Link>
+          </Grid>
+        )}
       </Grid>
     </div>
   );
