@@ -6,9 +6,14 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 10,
+    paddingTop: 10,
     paddingBottom: 10,
     borderBottom: "1px solid #07b377",
+    position: "fixed",
+    top: 0,
+    zIndex: 1000,
+    backgroundColor:
+      localStorage.getItem("mode") === "dark" ? "#282828" : "#e9e9e9",
   },
   container: {
     width: "90%",

@@ -15,7 +15,9 @@ const Home: FC<Props> = ({ toggle }) => {
   return (
     <div className={classes.root}>
       <Header toggle={toggle} />
-
+      <Grid style={{ position: "relative" }}>
+        <Cart />
+      </Grid>
       {/* <Grid className={classes.productContainer}>
         <ProductCard />
         <ProductCard />
@@ -30,7 +32,6 @@ const Home: FC<Props> = ({ toggle }) => {
       </Grid> */}
       {/*<SignUp />*/}
       {/* <Login /> */}
-      <Cart />
     </div>
   );
 };

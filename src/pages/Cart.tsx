@@ -1,15 +1,15 @@
 import useStyles from "./Cart.styles";
 import { FC } from "react";
-import { Button, Grid } from "@material-ui/core";
-import ProductCard from "../components/ProductCard";
+import { Grid } from "@material-ui/core";
 import CartProductCard from "../components/CartProductCard";
+import Sidebar from "../components/Sidebar";
 
 interface Props {}
 const Cart: FC<Props> = () => {
   const classes = useStyles();
   return (
-    <>
-      <Grid className={classes.productContainer}>
+    <Grid container className={classes.root}>
+      <Grid item className={classes.productContainer} xs={12} md={8}>
         <CartProductCard icon={"e"} />
         <CartProductCard icon={"e"} />
         <CartProductCard icon={"e"} />
@@ -19,7 +19,10 @@ const Cart: FC<Props> = () => {
         <CartProductCard icon={"e"} />
         <CartProductCard icon={"e"} />
       </Grid>
-    </>
+      <Grid item className={classes.sidebarContainer} xs={12} md={4}>
+        <Sidebar />
+      </Grid>
+    </Grid>
   );
 };
 

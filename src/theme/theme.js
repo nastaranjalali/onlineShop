@@ -27,6 +27,10 @@ const darkTheme = createTheme({
       textAlign: "center",
       fontSize: 16,
     },
+    h1: {
+      fontSize: 40,
+      color: "#63637e",
+    },
     h2: {
       fontSize: 28,
       color: "#63637e",
@@ -70,6 +74,10 @@ const lightTheme = createTheme({
       color: "#6e6e6e",
       textAlign: "center",
       fontSize: 16,
+    },
+    h1: {
+      fontSize: 40,
+      color: "#000",
     },
     h2: {
       color: "#000",

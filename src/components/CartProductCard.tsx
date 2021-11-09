@@ -18,24 +18,20 @@ interface Props {
 const CartProductCard: FC<Props> = ({ icon }) => {
   const classes = useStyles();
   return (
-    <Grid item xs={12} md={6} className={classes.root}>
+    <Grid item xs={11} className={classes.root}>
       <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image={samplePhoto}
-          title="Paella dish"
-        />
+        <img src={samplePhoto} alt="sample photo" className={classes.media} />
         <CardContent className={classes.content}>
-          <IconButton aria-label="settings" className={classes.iconBTN}>
-            {icon === "cart" ? <DeleteIcon /> : <AddShoppingCartIcon />}
-          </IconButton>
-          <Typography variant="h2" color="textSecondary" component="p">
+          <Typography variant="h1" color="textSecondary" component="p">
             This is a sample title
           </Typography>
 
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="h2" color="textSecondary" component="p">
             price : 20,000
           </Typography>
+          <IconButton aria-label="settings" className={classes.iconBTN}>
+            <DeleteIcon />
+          </IconButton>
         </CardContent>
       </Card>
     </Grid>

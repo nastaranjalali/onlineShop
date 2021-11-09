@@ -3,12 +3,12 @@ import { FC } from "react";
 import { Formik, Form, Field } from "formik";
 import { Button, Grid } from "@material-ui/core";
 import { schema } from "./validation";
-interface SignUp {
+interface Login {
   username: string;
   password: string;
 }
 
-const initialValues: SignUp = {
+const initialValues: Login = {
   username: "",
   password: "",
 };
