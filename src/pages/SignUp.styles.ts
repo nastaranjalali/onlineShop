@@ -30,9 +30,12 @@ const useStyles = makeStyles({
     outline: "none",
     marginBottom: 40,
     transition: "300ms",
+    color: localStorage.getItem("mode") === "dark" ? "#fff" : "#222",
+    fontSize: 18,
+
     "&::placeholder": {
-      fontSize: 15,
-      color: "rgb(139,139,139)",
+      fontSize: 18,
+      color: localStorage.getItem("mode") === "dark" ? "#e6e6e6" : "#666",
       fontFamily: " Nunito, sans-serif",
       fontWeight: 400,
     },
@@ -43,6 +46,13 @@ const useStyles = makeStyles({
     },
     "&:hover": {
       borderBottom: "6px solid #07b377",
+    },
+    "&:-webkit-autofill": {
+      "-webkitAppearance": "none",
+      fontSize: "18px !important",
+      borderBottom: "6px solid #07b377",
+      "-webkit-background-clip": "text",
+      transition: "color 5000s ease-in-out 0s",
     },
   },
   signUpBTN: { width: "100%" },

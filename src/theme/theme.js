@@ -27,6 +27,10 @@ const darkTheme = createTheme({
       textAlign: "center",
       fontSize: 16,
     },
+    h2: {
+      fontSize: 28,
+      color: "#63637e",
+    },
     button: {
       fontWeight: 400,
       lineHeight: 3,
@@ -66,6 +70,10 @@ const lightTheme = createTheme({
       color: "#6e6e6e",
       textAlign: "center",
       fontSize: 16,
+    },
+    h2: {
+      color: "#000",
+      fontSize: 28,
     },
     button: {
       fontWeight: 400,

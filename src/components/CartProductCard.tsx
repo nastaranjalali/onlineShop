@@ -8,18 +8,17 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { Grid, IconButton } from "@material-ui/core";
 import { FC } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import useStyles from "./ProductCard.styles";
-
+import useStyles from "./CartProductCard.styles";
 interface Props {
   icon: string;
   // title: string;
   // img: string;
   // price: Number;
 }
-const ProductCard: FC<Props> = ({ icon }) => {
+const CartProductCard: FC<Props> = ({ icon }) => {
   const classes = useStyles();
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3} className={classes.root}>
+    <Grid item xs={12} md={6} className={classes.root}>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
@@ -35,7 +34,7 @@ const ProductCard: FC<Props> = ({ icon }) => {
           </Typography>
 
           <Typography variant="body2" color="textSecondary" component="p">
-            price : 20,000 $
+            price : 20,000
           </Typography>
         </CardContent>
       </Card>
@@ -43,4 +42,4 @@ const ProductCard: FC<Props> = ({ icon }) => {
   );
 };
 
-export default ProductCard;
+export default CartProductCard;
