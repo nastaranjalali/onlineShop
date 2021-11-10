@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core";
-
+import { useTheme } from "../contexts/ThemeContext";
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -12,8 +12,10 @@ const useStyles = makeStyles({
     position: "fixed",
     top: 0,
     zIndex: 1000,
-    backgroundColor:
-      localStorage.getItem("mode") === "dark" ? "#282828" : "#e9e9e9",
+  },
+  logoContainer: {
+    display: "flex",
+    alignItems: "center",
   },
   container: {
     width: "90%",
@@ -22,14 +24,14 @@ const useStyles = makeStyles({
     alignItems: "center",
   },
   cartIconBTN: {
+    borderRadius: 0,
     transition: "200ms ease-in",
-
     "&:hover": {
       color: "#07b377",
       backgroundColor: "transparent",
     },
   },
-
+  logo: { borderLeft: "1px solid #07b377", paddingLeft: 13 },
   cartIcon: {
     fontSize: 40,
   },

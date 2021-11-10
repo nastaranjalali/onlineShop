@@ -2,27 +2,36 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { darkTheme, lightTheme } from "./theme/theme";
 import Home from "./pages/Home";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from "./routes";
+import { useTheme } from "./contexts/ThemeContext";
 
 function App() {
-  const toggleThemeMode = (mode: string) => {
-    if (localStorage.getItem("mode") !== mode)
-      localStorage.setItem("mode", mode);
-    else return;
-    window.location.reload();
-  };
+  const { darkTheme: isDarkThemeEnabled } = useTheme();
+  // const toggleThemeMode = (mode: string) => {
+  //   if (localStorage.getItem("mode") !== mode)
+  //     localStorage.setItem("mode", mode);
+  //   else return;
+  //   window.location.reload();
+  // };
+  console.log({ isDarkThemeEnabled });
   return (
     <div className="App">
-      <BrowserRouter>
-        <ThemeProvider
-          theme={
-            localStorage.getItem("mode") === "dark" ? darkTheme : lightTheme
-          }
-        >
-          <CssBaseline />
-          <Home toggle={toggleThemeMode} />
-        </ThemeProvider>
-      </BrowserRouter>
+      <Router>
+        {isDarkThemeEnabled ? (
+          <ThemeProvider theme={darkTheme}>
+            <CssBaseline />
+            <Home />
+            {console.log("dark theme is rendering")}
+          </ThemeProvider>
+        ) : (
+          <ThemeProvider theme={lightTheme}>
+            <CssBaseline />
+            <Home />
+            {console.log("light theme is rendering")}
+          </ThemeProvider>
+        )}
+      </Router>
     </div>
   );
 }

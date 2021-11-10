@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import ProductCard from "../components/ProductCard";
 import { Header } from "../components/Header";
 import { Grid } from "@material-ui/core";
@@ -6,16 +6,17 @@ import useStyles from "./Home.styles";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import Cart from "./Cart";
+import { useTheme } from "../contexts/ThemeContext";
 
-interface Props {
-  toggle: any;
-}
-const Home: FC<Props> = ({ toggle }) => {
+const Home: FC = () => {
   const classes = useStyles();
+  const { darkTheme, toggleTheme } = useTheme();
+
   return (
     <div className={classes.root}>
-      <Header toggle={toggle} />
+      <Header />
       <Grid style={{ position: "relative" }}>
+        {console.log("theme is : " + darkTheme)}
         <Cart />
       </Grid>
       {/* <Grid className={classes.productContainer}>

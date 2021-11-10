@@ -1,10 +1,11 @@
-import Typography from "@material-ui/core/Typography";
 import { Button, Grid } from "@material-ui/core";
 import { FC } from "react";
 import useStyles from "./Sidebar.styles";
 import { Formik, Form, Field } from "formik";
 import { schema } from "../pages/validation";
 import Select from "react-select";
+import { useTheme } from "../contexts/ThemeContext";
+import { darkTheme } from "../theme/theme";
 
 interface Login {
   username: string;
@@ -17,6 +18,8 @@ const initialValues: Login = {
 };
 
 const Sidebar: FC = () => {
+  const { darkTheme: isDarkThemeEnabled } = useTheme();
+
   //   const customStyles = {
   //     option: (provided: any, state: { isSelected: any }) => ({
   //       ...provided,
@@ -58,7 +61,16 @@ const Sidebar: FC = () => {
                   width: "100%",
                 }}
               >
-                <Grid container xs={12} className={classes.formContainer}>
+                <Grid
+                  item
+                  xs={12}
+                  className={classes.formContainer}
+                  style={{
+                    backgroundColor: isDarkThemeEnabled
+                      ? "transparent"
+                      : "#07b377",
+                  }}
+                >
                   <Field
                     className={classes.field}
                     type="email"

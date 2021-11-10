@@ -7,10 +7,12 @@ const darkTheme = createTheme({
     primary: {
       main: "#07b377",
       back: "#26a27b",
+      dark: "#000000",
     },
     secondary: {
       main: "#fafafa",
     },
+    background: "black",
   },
   typography: {
     fontFamily: "'Work Sans', sans-serif",
@@ -54,10 +56,12 @@ const lightTheme = createTheme({
     primary: {
       main: "#07b377",
       back: "#fafafa",
+      dark: "#ffffff",
     },
     secondary: {
       main: "#26a27b",
     },
+    background: "#ffffff",
   },
   typography: {
     fontFamily: "'Work Sans', sans-serif",

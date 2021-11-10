@@ -10,14 +10,15 @@ const Cart: FC<Props> = () => {
   return (
     <Grid container className={classes.root}>
       <Grid item className={classes.productContainer} xs={12} md={8}>
-        <CartProductCard icon={"e"} />
-        <CartProductCard icon={"e"} />
-        <CartProductCard icon={"e"} />
-        <CartProductCard icon={"e"} />
-        <CartProductCard icon={"e"} />
-        <CartProductCard icon={"e"} />
-        <CartProductCard icon={"e"} />
-        <CartProductCard icon={"e"} />
+        <CartProductCard />
+        <CartProductCard />
+        <CartProductCard />
+        <CartProductCard />
+        <CartProductCard />
+        <CartProductCard />
+        <CartProductCard />
+        <CartProductCard />
+        <CartProductCard />
       </Grid>
       <Grid item className={classes.sidebarContainer} xs={12} md={4}>
         <Sidebar />

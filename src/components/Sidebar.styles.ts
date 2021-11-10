@@ -4,64 +4,48 @@ const useStyles = makeStyles({
   root: {
     width: "98%",
     right: 200,
-    marginTop: 110,
+    marginTop: 140,
   },
   formContainer: {
     border: "2px solid #07b377",
     borderRadius: 5,
-    padding: "40px 30px",
-    backgroundColor:
-      localStorage.getItem("mode") === "dark" ? "transparent" : "#07b377",
-    height: "80vh",
+    padding: "90px 30px",
+
+    height: "70vh",
   },
   field: {
     width: "100%",
+    borderRadius: 3,
     padding: 7,
     boxShadow: "none",
-    backgroundColor: "transparent",
+    backgroundColor: "#e6e6e6",
     border: "none",
-    borderBottom:
-      localStorage.getItem("mode") === "dark"
-        ? "4px solid #07b377"
-        : "4px solid #046e49",
+
     height: 38,
     outline: "none",
     marginBottom: 40,
-    color: localStorage.getItem("mode") === "dark" ? "#fff" : "#fff",
+    color: "#fff",
     transition: "300ms",
-    fontSize: 18,
+    fontSize: 14,
     "&::placeholder": {
       fontSize: 18,
-      color: localStorage.getItem("mode") === "dark" ? "#e6e6e6" : "#e6e6e6",
+      color: "#888",
       fontFamily: " Nunito, sans-serif",
       fontWeight: 400,
     },
     "&::fucos": {
       outline: "none",
       border: "none",
-      borderBottom:
-        localStorage.getItem("mode") === "dark"
-          ? "6px solid #07b377"
-          : "6px solid #046e49",
-    },
-    "&:hover": {
-      borderBottom:
-        localStorage.getItem("mode") === "dark"
-          ? "6px solid #07b377"
-          : "6px solid #046e49",
     },
     "&:-webkit-autofill": {
       "-webkitAppearance": "none",
       fontSize: "18px !important",
-      borderBottom:
-        localStorage.getItem("mode") === "dark"
-          ? "6px solid #07b377"
-          : "6px solid #046e49",
+
       "-webkit-background-clip": "text",
       transition: "color 5000s ease-in-out 0s",
     },
   },
-  select: { width: "100%" },
+  select: { width: "100%", marginBottom: 30 },
   signUpBTN: {
     width: "100%",
     backgroundColor:

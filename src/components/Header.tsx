@@ -6,33 +6,46 @@ import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
 import useStyles from "./Header.styles";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import { useTheme } from "../contexts/ThemeContext";
 
-interface Props {
-  toggle: any;
-}
-export const Header: FC<Props> = ({ toggle }) => {
+export const Header: FC = () => {
   const classes = useStyles();
-  const themeMode = localStorage.getItem("mode");
+  const { darkTheme, toggleTheme } = useTheme();
+  console.log({ darkTheme });
   return (
-    <div className={classes.root}>
+    <div
+      className={classes.root}
+      style={{ backgroundColor: darkTheme ? "#282828" : "#e9e9e9" }}
+    >
       <Grid container className={classes.container}>
         <Grid className={classes.leftNav}>
-          <IconButton aria-label="settings" className={classes.cartIconBTN}>
-            <ShoppingCartOutlinedIcon className={classes.cartIcon} />
-          </IconButton>
+          <Grid className={classes.logoContainer}>
+            <IconButton className={classes.cartIconBTN}>
+              <ShoppingCartOutlinedIcon className={classes.cartIcon} />
+            </IconButton>
+            <Link underline="none">
+              <Typography variant="h2" className={classes.logo}>
+                SHOPPOING APP
+              </Typography>
+            </Link>
+          </Grid>
+
           <Grid className={classes.changeThemeContainer}>
             <IconButton
-              onClick={() => toggle("light")}
-              disableRipple={false}
+              onClick={() => toggleTheme()}
               className={[
                 classes.sunIconBTN,
-                themeMode === "light" ? "" : classes.notActiveSun,
+                !darkTheme ? "" : classes.notActiveSun,
               ].join(" ")}
-              disabled={themeMode === "light" ? true : false}
+              // disabled={!darkTheme ? true : false}
             >
-              <WbSunnyIcon className={classes.sunIcon} />
+              {darkTheme ? (
+                <WbSunnyIcon className={classes.sunIcon} />
+              ) : (
+                <Brightness3Icon className={classes.moonIcon} />
+              )}
             </IconButton>
-            <IconButton
+            {/* <IconButton
               onClick={() => toggle("dark")}
               disableRipple={false}
               className={[
@@ -42,7 +55,7 @@ export const Header: FC<Props> = ({ toggle }) => {
               disabled={themeMode === "dark" ? true : false}
             >
               <Brightness3Icon className={classes.moonIcon} />
-            </IconButton>
+            </IconButton> */}
           </Grid>
         </Grid>
         {localStorage.getItem("token") ? (
@@ -56,13 +69,21 @@ export const Header: FC<Props> = ({ toggle }) => {
           </Grid>
         ) : (
           <Grid className={classes.rightNav}>
-            <Link underline="none" href="#" className={classes.profilelink}>
+            <Link
+              underline="none"
+              // to={"/profile"}
+              className={classes.profilelink}
+            >
               <Typography className={classes.usersname} variant="body2">
                 Sign Up
               </Typography>
             </Link>
             <b style={{ marginRight: 10 }}>/</b>
-            <Link underline="none" href="#" className={classes.profilelink}>
+            <Link
+              underline="none"
+              // to={"/login"}
+              className={classes.profilelink}
+            >
               <Typography className={classes.usersname} variant="body2">
                 Login
               </Typography>
