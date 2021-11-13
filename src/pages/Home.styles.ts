@@ -7,11 +7,9 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    
   },
   productContainer: {
-    width: "100%",
-    padding: 20,
+    width: "90%",
     display: "flex",
     flexWrap: "wrap",
   },

@@ -2,8 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
-    width: "98%",
-    right: 200,
+    width: "92%",
     marginTop: 110,
   },
   formContainer: {

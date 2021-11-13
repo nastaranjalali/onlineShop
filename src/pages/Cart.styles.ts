@@ -5,10 +5,10 @@ const useStyles = makeStyles({
     width: "100%",
     display: "flex",
   },
-  productContainer: { paddingLeft: 20, paddingTop: 100 },
+  productContainer: { paddingTop: 100 },
   sidebarContainer: {
     position: "fixed",
-    right: 10,
+    right: 0,
   },
 });
 
