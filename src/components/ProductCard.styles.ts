@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
-  root: { padding: "15px 20px" },
+  root: { padding: "15px 20px", margin: 0 },
   card: {
     width: "100%",
   },

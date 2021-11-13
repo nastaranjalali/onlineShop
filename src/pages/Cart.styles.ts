@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     display: "flex",
@@ -8,8 +8,14 @@ const useStyles = makeStyles({
   productContainer: { paddingTop: 100 },
   sidebarContainer: {
     position: "fixed",
-    right: 0,
+    [theme.breakpoints.down("md")]: {
+      position: "static",
+      marginBottom: 50,
+    },
+    width: "100%",
+
+    right: "5%",
   },
-});
+}));
 
 export default useStyles;

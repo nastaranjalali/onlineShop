@@ -24,13 +24,13 @@ export const Header: FC = () => {
             <IconButton
               onClick={() => toggleTheme}
               disableRipple={false}
-              className={[
-                classes.sunIconBTN,
-                themeMode === "light" ? "" : classes.notActiveSun,
-              ].join(" ")}
-              disabled={themeMode === "light" ? true : false}
+              className={classes.sunIconBTN}
             >
-              <WbSunnyIcon className={classes.sunIcon} />
+              {theme === "dark" ? (
+                <WbSunnyIcon className={classes.sunIcon} />
+              ) : (
+                <Brightness3Icon className={classes.moonIcon} />
+              )}
             </IconButton>
             {/* <IconButton
               onClick={() => toggle("dark")}

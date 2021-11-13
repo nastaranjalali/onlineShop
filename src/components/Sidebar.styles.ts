@@ -2,16 +2,20 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
-    width: "92%",
+    width: "100%",
     marginTop: 110,
   },
   formContainer: {
+    width: "100%",
     border: "2px solid #07b377",
     borderRadius: 5,
     padding: "40px 30px",
     backgroundColor:
       localStorage.getItem("mode") === "dark" ? "transparent" : "#07b377",
     height: "80vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
   },
   field: {
     width: "100%",

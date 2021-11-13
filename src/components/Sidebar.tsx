@@ -58,7 +58,7 @@ const Sidebar: FC = () => {
                   width: "100%",
                 }}
               >
-                <Grid container xs={12} className={classes.formContainer}>
+                <Grid item xs={12} className={classes.formContainer}>
                   <Field
                     className={classes.field}
                     type="email"
