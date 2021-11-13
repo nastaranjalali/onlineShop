@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import { Grid, Link, Typography } from "@material-ui/core";
 import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
@@ -6,13 +6,13 @@ import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
 import useStyles from "./Header.styles";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-
-interface Props {
-  toggle: any;
-}
-export const Header: FC<Props> = ({ toggle }) => {
+import { DarkThemeContext } from "../contexts/ThemeContext";
+import { useContext } from "react";
+export const Header: FC = () => {
   const classes = useStyles();
   const themeMode = localStorage.getItem("mode");
+  const { theme, toggleTheme } = useContext(DarkThemeContext);
+
   return (
     <div className={classes.root}>
       <Grid container className={classes.container}>
@@ -22,7 +22,7 @@ export const Header: FC<Props> = ({ toggle }) => {
           </IconButton>
           <Grid className={classes.changeThemeContainer}>
             <IconButton
-              onClick={() => toggle("light")}
+              onClick={() => toggleTheme}
               disableRipple={false}
               className={[
                 classes.sunIconBTN,

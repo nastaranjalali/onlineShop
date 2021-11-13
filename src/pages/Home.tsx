@@ -7,14 +7,11 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 import Cart from "./Cart";
 
-interface Props {
-  toggle: any;
-}
-const Home: FC<Props> = ({ toggle }) => {
+const Home: FC = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Header toggle={toggle} />
+      <Header />
       <Grid style={{ position: "relative", width: "90%" }}>
         <Cart />
       </Grid>
