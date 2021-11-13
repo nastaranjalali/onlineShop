@@ -34,9 +34,8 @@ const useStyles = makeStyles({
     fontSize: 40,
   },
   leftNav: {
-    width: "53%",
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     alignItems: "center",
   },
   profilelink: {
@@ -98,6 +97,7 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "row",
   },
+  logo: { color: "#07b377", fontWeight: 700 },
 });
 
 export default useStyles;

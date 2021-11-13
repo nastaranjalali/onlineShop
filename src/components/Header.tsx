@@ -32,7 +32,7 @@ export const Header: FC<Props> = ({ toggle }) => {
             >
               <WbSunnyIcon className={classes.sunIcon} />
             </IconButton>
-            <IconButton
+            {/* <IconButton
               onClick={() => toggle("dark")}
               disableRipple={false}
               className={[
@@ -42,9 +42,14 @@ export const Header: FC<Props> = ({ toggle }) => {
               disabled={themeMode === "dark" ? true : false}
             >
               <Brightness3Icon className={classes.moonIcon} />
-            </IconButton>
+            </IconButton> */}
           </Grid>
         </Grid>
+        <Link href="#" underline="none">
+          <Typography variant="h2" className={classes.logo}>
+            Sample Logo
+          </Typography>
+        </Link>
         {localStorage.getItem("token") ? (
           <Grid>
             <Link underline="none" href="#" className={classes.profilelink}>
