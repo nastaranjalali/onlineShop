@@ -3,7 +3,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { darkTheme, lightTheme } from "./theme/theme";
 import Home from "./pages/Home";
 import { BrowserRouter } from "react-router-dom";
-import { DarkThemeContext } from "./contexts/ThemeContext";
+import { ThemeContext } from "./contexts/ThemeContext";
 import { useContext } from "react";
 function App() {
   // const toggleThemeMode = (mode: string) => {
@@ -12,7 +12,7 @@ function App() {
   //   else return;
   //   window.location.reload();
   // };
-  const { theme } = useContext(DarkThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <div className="App">
@@ -26,7 +26,7 @@ function App() {
         <ThemeProvider theme={lightTheme}>
           <CssBaseline />
           <Home />
-          {console.log("light theme is rendering")}
+          {console.log("light theme is rendering   " + theme)}
         </ThemeProvider>
       )}
     </div>

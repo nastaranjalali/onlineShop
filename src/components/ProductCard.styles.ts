@@ -14,8 +14,6 @@ const useStyles = makeStyles({
     position: "relative",
   },
   iconBTN: {
-    backgroundColor:
-      localStorage.getItem("mode") === "dark" ? "#424242" : "#fff",
     position: "absolute",
     right: 10,
     top: -30,

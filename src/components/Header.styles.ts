@@ -12,8 +12,6 @@ const useStyles = makeStyles({
     position: "fixed",
     top: 0,
     zIndex: 1000,
-    backgroundColor:
-      localStorage.getItem("mode") === "dark" ? "#282828" : "#e9e9e9",
   },
   container: {
     width: "90%",

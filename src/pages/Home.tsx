@@ -6,6 +6,8 @@ import useStyles from "./Home.styles";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import Cart from "./Cart";
+import samplePhoto from "../assets/samplePhoto.jpg";
+import Products from "./Products";
 
 const Home: FC = () => {
   const classes = useStyles();
@@ -13,20 +15,10 @@ const Home: FC = () => {
     <div className={classes.root}>
       <Header />
       <Grid style={{ position: "relative", width: "90%" }}>
-        <Cart />
+        {/* <Cart /> */}
+        <Products />
       </Grid>
-      {/* <Grid className={classes.productContainer}>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </Grid> */}
+
       {/*<SignUp />*/}
       {/* <Login /> */}
     </div>

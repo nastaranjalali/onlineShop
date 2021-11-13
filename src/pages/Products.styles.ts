@@ -5,15 +5,11 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     display: "flex",
   },
-  productContainer: { paddingTop: 100 },
-  sidebarContainer: {
-    position: "fixed",
-    [theme.breakpoints.down("md")]: {
-      position: "static",
-      marginBottom: 50,
-    },
+  productContainer: {
+    marginTop: 100,
     width: "100%",
-    right: "5%",
+    display: "flex",
+    flexWrap: "wrap",
   },
 }));
 

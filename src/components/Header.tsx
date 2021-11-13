@@ -6,15 +6,17 @@ import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
 import useStyles from "./Header.styles";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import { DarkThemeContext } from "../contexts/ThemeContext";
+import { ThemeContext } from "../contexts/ThemeContext";
 import { useContext } from "react";
 export const Header: FC = () => {
   const classes = useStyles();
-  const themeMode = localStorage.getItem("mode");
-  const { theme, toggleTheme } = useContext(DarkThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <div className={classes.root}>
+    <div
+      className={classes.root}
+      style={{ backgroundColor: theme === "dark" ? "#282828" : "#e9e9e9" }}
+    >
       <Grid container className={classes.container}>
         <Grid className={classes.leftNav}>
           <IconButton aria-label="settings" className={classes.cartIconBTN}>
@@ -22,7 +24,7 @@ export const Header: FC = () => {
           </IconButton>
           <Grid className={classes.changeThemeContainer}>
             <IconButton
-              onClick={() => toggleTheme}
+              onClick={() => toggleTheme()}
               disableRipple={false}
               className={classes.sunIconBTN}
             >
@@ -32,17 +34,6 @@ export const Header: FC = () => {
                 <Brightness3Icon className={classes.moonIcon} />
               )}
             </IconButton>
-            {/* <IconButton
-              onClick={() => toggle("dark")}
-              disableRipple={false}
-              className={[
-                classes.moonIconBTN,
-                themeMode === "dark" ? "" : classes.notActiveMoon,
-              ].join(" ")}
-              disabled={themeMode === "dark" ? true : false}
-            >
-              <Brightness3Icon className={classes.moonIcon} />
-            </IconButton> */}
           </Grid>
         </Grid>
         <Link href="#" underline="none">

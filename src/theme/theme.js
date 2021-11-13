@@ -1,7 +1,5 @@
 import { createTheme } from "@material-ui/core/styles";
-const baseTheme = createTheme({});
 const darkTheme = createTheme({
-  ...baseTheme,
   palette: {
     type: "dark",
     primary: {
@@ -48,7 +46,6 @@ const darkTheme = createTheme({
   },
 });
 const lightTheme = createTheme({
-  ...baseTheme,
   palette: {
     type: "light",
     primary: {
