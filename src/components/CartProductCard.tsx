@@ -14,9 +14,8 @@ interface Props {
 const CartProductCard: FC<Props> = ({ title, img, price }) => {
   const classes = useStyles();
   return (
-    <Grid item xs={11} className={classes.root}>
+    <Grid item xs={12} className={classes.root}>
       <Card className={classes.card}>
-        <img src={img} alt="sample" className={classes.media} />
         <CardContent className={classes.content}>
           <Typography variant="h1" color="textSecondary" component="p">
             {title}
@@ -29,6 +28,7 @@ const CartProductCard: FC<Props> = ({ title, img, price }) => {
             <DeleteIcon />
           </IconButton>
         </CardContent>
+        <img src={img} alt="sample" className={classes.media} />
       </Card>
     </Grid>
   );

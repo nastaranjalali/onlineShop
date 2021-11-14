@@ -20,9 +20,11 @@ export const Header: FC = () => {
     >
       <Grid container className={classes.container}>
         <Grid className={classes.leftNav}>
-          <IconButton aria-label="settings" className={classes.cartIconBTN}>
-            <ShoppingCartOutlinedIcon className={classes.cartIcon} />
-          </IconButton>
+          <Link to="/cart">
+            <IconButton aria-label="settings" className={classes.cartIconBTN}>
+              <ShoppingCartOutlinedIcon className={classes.cartIcon} />
+            </IconButton>
+          </Link>
           <Grid className={classes.changeThemeContainer}>
             <IconButton
               onClick={() => toggleTheme()}
@@ -37,18 +39,18 @@ export const Header: FC = () => {
             </IconButton>
           </Grid>
         </Grid>
-        <Link to="/">
+        <Link to="/" className={classes.logo}>
           <Typography variant="h2" className={classes.logo}>
             Sample Logo
           </Typography>
         </Link>
         {localStorage.getItem("token") ? (
           <Grid>
-            <Link to="/cart" className={classes.profilelink}>
+            <Link to="/profile" className={classes.profilelink}>
               <Typography className={classes.usersname} variant="body2">
                 user's name goes here
               </Typography>
-              <AccountCircleRoundedIcon className={classes.cartIcon} />
+              <AccountCircleRoundedIcon className={classes.avatarIcon} />
             </Link>
           </Grid>
         ) : (

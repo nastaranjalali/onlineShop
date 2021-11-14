@@ -15,9 +15,10 @@ const useStyles = makeStyles({
     alignItems: "center",
     flexDirection: "column",
     border: "2px solid #07b377",
-    borderRadius: 10,
+    borderRadius: 5,
     padding: "40px 30px",
-    backgroundColor: "rgba(7, 179, 119,0.1)",
+    backgroundColor:
+      localStorage.getItem("mode") === "dark" ? "transparent" : "#07b377",
   },
   field: {
     width: "400px",
@@ -55,7 +56,27 @@ const useStyles = makeStyles({
       transition: "color 5000s ease-in-out 0s",
     },
   },
-  signUpBTN: { width: "100%" },
+  signUpBTN: {
+    width: "100%",
+    backgroundColor:
+      localStorage.getItem("mode") === "dark" ? "#07b377" : "#046e49",
+    color: localStorage.getItem("mode") === "dark" ? "#fff" : "#fff",
+    transition: "300ms",
+    marginBottom: 20,
+    "&:hover": {
+      backgroundColor:
+        localStorage.getItem("mode") === "dark" ? "#222" : "#054730",
+    },
+  },
+  noAccount: { color: "#fff" },
+  signUp: {
+    color: localStorage.getItem("mode") === "dark" ? "#07b377" : "#054730",
+    textDecoration: "none",
+    transition: "200ms",
+    "&:hover": {
+      color: "#fff",
+    },
+  },
 });
 
 export default useStyles;

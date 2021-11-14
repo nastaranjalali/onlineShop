@@ -1,8 +1,9 @@
 import useStyles from "./SignUp.styles";
 import { FC } from "react";
 import { Formik, Form, Field } from "formik";
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 import { schema } from "./validation";
+import { Link } from "react-router-dom";
 interface SignUp {
   name: string;
   username: string;
@@ -68,6 +69,12 @@ const SignUp: FC<Props> = () => {
                   <Button type="submit" className={classes.signUpBTN}>
                     Sign Up
                   </Button>
+                  <Typography variant="body2" className={classes.noAccount}>
+                    already have an account?&nbsp;&nbsp;&nbsp;
+                    <Link to="/login" className={classes.signUp}>
+                      login
+                    </Link>
+                  </Typography>
                 </Grid>
               </Form>
             </Grid>

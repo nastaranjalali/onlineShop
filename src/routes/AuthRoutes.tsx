@@ -7,10 +7,10 @@ import MainRoutes from "./MainRoutes";
 const AuthRoutes = () => {
   return (
     <>
+      <Route path="/" exact component={Home} />
       <Route path="/login" exact component={Login} />
       <Route path="/signup" exact component={SignUp} />
-
-      <Redirect to="/login" />
+      <Redirect to="/" />
     </>
   );
 };

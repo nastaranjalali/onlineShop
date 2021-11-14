@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     width: "100%",
-    marginTop: 110,
+    marginTop: 100,
   },
   formContainer: {
     width: "100%",
@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     padding: "40px 30px",
     backgroundColor:
       localStorage.getItem("mode") === "dark" ? "transparent" : "#07b377",
-    height: "80vh",
+    height: "82vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-evenly",

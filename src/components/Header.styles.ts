@@ -31,6 +31,9 @@ const useStyles = makeStyles({
   cartIcon: {
     fontSize: 40,
   },
+  avatarIcon: {
+    fontSize: 40,
+  },
   leftNav: {
     display: "flex",
     justifyContent: "flex-start",
@@ -40,6 +43,15 @@ const useStyles = makeStyles({
     verticalAlign: "center",
     display: "flex",
     alignItems: "center",
+    textDecoration: "none",
+    transition: "200ms ease-in",
+
+    "&:hover": {
+      color: "#07b377",
+    },
+    "&:visited": {
+      color: "#07b377",
+    },
   },
   usersname: {
     verticalAlign: "center",
@@ -77,25 +89,11 @@ const useStyles = makeStyles({
 
   moonIcon: { fontSize: 20 },
 
-  notActiveSun: {
-    transition: "200ms ease-in",
-    "&:hover": {
-      color: "#eddb15",
-      backgroundColor: "#444",
-    },
-  },
-  notActiveMoon: {
-    transition: "200ms ease-in",
-    "&:hover": {
-      color: "#89acfa",
-      backgroundColor: "#444",
-    },
-  },
   rightNav: {
     display: "flex",
     flexDirection: "row",
   },
-  logo: { color: "#07b377", fontWeight: 700 },
+  logo: { color: "#07b377", fontWeight: 700, textDecoration: "none" },
 });
 
 export default useStyles;

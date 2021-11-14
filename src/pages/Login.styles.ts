@@ -81,7 +81,7 @@ const useStyles = makeStyles({
   },
   noAccount: { color: "#fff" },
   signUp: {
-    color: "#054730",
+    color: localStorage.getItem("mode") === "dark" ? "#07b377" : "#054730",
     textDecoration: "none",
     transition: "200ms",
     "&:hover": {

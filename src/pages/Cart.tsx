@@ -4,13 +4,15 @@ import { Grid } from "@material-ui/core";
 import CartProductCard from "../components/CartProductCard";
 import Sidebar from "../components/Sidebar";
 import samplePhoto from "../assets/samplePhoto.jpg";
+import Header from "../components/Header";
 
 interface Props {}
 const Cart: FC<Props> = () => {
   const classes = useStyles();
   return (
     <Grid container className={classes.root}>
-      <Grid item className={classes.productContainer} xs={12} md={8}>
+      <Header />
+      <Grid item className={classes.productContainer} xs={12} md={7}>
         <CartProductCard title="sample Title" price={20000} img={samplePhoto} />
         <CartProductCard title="sample Title" price={20000} img={samplePhoto} />
         <CartProductCard title="sample Title" price={20000} img={samplePhoto} />
