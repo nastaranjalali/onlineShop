@@ -1,7 +1,9 @@
-import React from "react";
+import AuthRoutes from "./AuthRoutes";
+import PanelRoutes from "./PanelRoutes";
 
-const index = () => {
-  return <div></div>;
+const Routes = () => {
+  const hasAccess = !!localStorage.token;
+
+  return <>{hasAccess ? <PanelRoutes /> : <AuthRoutes />}</>;
 };
-
-export default index;
+export default Routes;

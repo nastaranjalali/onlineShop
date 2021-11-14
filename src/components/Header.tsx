@@ -1,6 +1,7 @@
 import { FC } from "react";
 import IconButton from "@material-ui/core/IconButton";
-import { Grid, Link, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
@@ -36,14 +37,14 @@ export const Header: FC = () => {
             </IconButton>
           </Grid>
         </Grid>
-        <Link href="#" underline="none">
+        <Link to="/">
           <Typography variant="h2" className={classes.logo}>
             Sample Logo
           </Typography>
         </Link>
         {localStorage.getItem("token") ? (
           <Grid>
-            <Link underline="none" href="#" className={classes.profilelink}>
+            <Link to="/cart" className={classes.profilelink}>
               <Typography className={classes.usersname} variant="body2">
                 user's name goes here
               </Typography>
@@ -52,13 +53,13 @@ export const Header: FC = () => {
           </Grid>
         ) : (
           <Grid className={classes.rightNav}>
-            <Link underline="none" href="#" className={classes.profilelink}>
+            <Link to={"/signUp"} className={classes.profilelink}>
               <Typography className={classes.usersname} variant="body2">
                 Sign Up
               </Typography>
             </Link>
             <b style={{ marginRight: 10 }}>/</b>
-            <Link underline="none" href="#" className={classes.profilelink}>
+            <Link to={"/login"} className={classes.profilelink}>
               <Typography className={classes.usersname} variant="body2">
                 Login
               </Typography>

@@ -67,15 +67,25 @@ const useStyles = makeStyles({
       transition: "color 5000s ease-in-out 0s",
     },
   },
-  signUpBTN: {
+  loginBTN: {
     width: "100%",
     backgroundColor:
       localStorage.getItem("mode") === "dark" ? "#07b377" : "#046e49",
     color: localStorage.getItem("mode") === "dark" ? "#fff" : "#fff",
     transition: "300ms",
+    marginBottom: 20,
     "&:hover": {
       backgroundColor:
         localStorage.getItem("mode") === "dark" ? "#222" : "#054730",
+    },
+  },
+  noAccount: { color: "#fff" },
+  signUp: {
+    color: "#054730",
+    textDecoration: "none",
+    transition: "200ms",
+    "&:hover": {
+      color: "#fff",
     },
   },
 });

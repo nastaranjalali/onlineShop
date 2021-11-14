@@ -1,8 +1,9 @@
 import useStyles from "./Login.styles";
 import { FC } from "react";
 import { Formik, Form, Field } from "formik";
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 import { schema } from "./validation";
+import { Link } from "react-router-dom";
 interface Login {
   username: string;
   password: string;
@@ -43,9 +44,15 @@ const Login: FC<Props> = () => {
                     placeholder="Enter your password ..."
                   />
 
-                  <Button type="submit" className={classes.signUpBTN}>
+                  <Button type="submit" className={classes.loginBTN}>
                     Login
                   </Button>
+                  <Typography variant="body2" className={classes.noAccount}>
+                    you don't have an account?&nbsp;&nbsp;&nbsp;
+                    <Link to="/signup" className={classes.signUp}>
+                      create one
+                    </Link>
+                  </Typography>
                 </Grid>
               </Form>
             </Grid>

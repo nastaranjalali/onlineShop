@@ -1,4 +1,3 @@
-import Typography from "@material-ui/core/Typography";
 import { Button, Grid } from "@material-ui/core";
 import { FC } from "react";
 import useStyles from "./Sidebar.styles";
