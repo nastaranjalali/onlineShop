@@ -4,12 +4,12 @@ import { Formik, Form, Field } from "formik";
 import { Button, Grid, Typography } from "@material-ui/core";
 import { schema } from "./validation";
 import { Link } from "react-router-dom";
-interface Login {
+interface LogIn {
   username: string;
   password: string;
 }
 
-const initialValues: Login = {
+const initialValues: LogIn = {
   username: "",
   password: "",
 };

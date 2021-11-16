@@ -2,7 +2,6 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import lightTheme from "./theme/lightTheme";
 import darkTheme from "./theme/darkTheme";
-import Home from "./pages/Home";
 import { ThemeContext } from "./contexts/ThemeContext";
 import { useContext } from "react";
 import { BrowserRouter as Router } from "react-router-dom";

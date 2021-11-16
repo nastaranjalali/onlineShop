@@ -93,7 +93,11 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "row",
   },
-  logo: { color: "#07b377", fontWeight: 700, textDecoration: "none" },
+  logo: {
+    color: "#07b377",
+    fontWeight: 700,
+    textDecoration: "none",
+  },
 });
 
 export default useStyles;

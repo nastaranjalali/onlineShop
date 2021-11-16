@@ -6,13 +6,17 @@ import { schema } from "../pages/validation";
 import Select from "react-select";
 
 interface Login {
-  username: string;
-  password: string;
+  email: string;
+  address: string;
+  delivery: string;
+  payment: string;
 }
 
 const initialValues: Login = {
-  username: "",
-  password: "",
+  email: "",
+  address: "",
+  delivery: "",
+  payment: "",
 };
 
 const Sidebar: FC = () => {
@@ -71,12 +75,14 @@ const Sidebar: FC = () => {
                     placeholder="Enter your address ..."
                   />
                   <Select
+                    name="delivery"
                     options={options}
                     className={classes.select}
                     placeholder={"choose delivery method ..."}
                   />
                   <Select
                     // styles={customStyles}
+                    name="payment"
                     options={options}
                     className={classes.select}
                     placeholder={"choose paying method ..."}
