@@ -22,7 +22,7 @@ const initialValues: Signup = {
 
 const SignUp: FC = () => {
   const classes = useStyles();
-  const { login } = useContext(AuthContext);
+  const { login, setfullName } = useContext(AuthContext);
   return (
     <>
       <Formik
@@ -58,6 +58,7 @@ const SignUp: FC = () => {
               } else if (status === 409) {
               } else if (status === 201) {
                 login(responseJson.token);
+                setfullName(responseJson.fullName);
                 console.log(responseJson);
               }
             });

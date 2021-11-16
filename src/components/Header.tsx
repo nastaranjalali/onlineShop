@@ -13,7 +13,7 @@ import { AuthContext } from "../contexts/AuthContext";
 export const Header: FC = () => {
   const classes = useStyles();
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const { token } = useContext(AuthContext);
+  const { token, name } = useContext(AuthContext);
 
   return (
     <div
@@ -50,7 +50,7 @@ export const Header: FC = () => {
           <Grid>
             <Link to="/profile" className={classes.profilelink}>
               <Typography className={classes.usersname} variant="body2">
-                user's name goes here
+                {name}
               </Typography>
               <AccountCircleRoundedIcon className={classes.avatarIcon} />
             </Link>
