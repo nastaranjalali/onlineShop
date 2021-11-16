@@ -1,24 +1,21 @@
-import useStyles from "./SignUp.styles";
+import useStyles from "./Login.styles";
 import { FC } from "react";
 import { Formik, Form, Field } from "formik";
 import { Button, Grid, Typography } from "@material-ui/core";
-import { schema } from "./validation";
+import { schema } from "../validation";
 import { Link } from "react-router-dom";
-interface Signup {
-  name: string;
+interface LogIn {
   username: string;
   password: string;
-  confirmPassword: string;
 }
 
-const initialValues: Signup = {
-  name: "",
+const initialValues: LogIn = {
   username: "",
   password: "",
-  confirmPassword: "",
 };
 
-const SignUp: FC = () => {
+interface Props {}
+const Login: FC<Props> = () => {
   const classes = useStyles();
   return (
     <>
@@ -27,13 +24,12 @@ const SignUp: FC = () => {
         validationSchema={schema}
         onSubmit={(values) => {
           let status: Number;
-          fetch("http://localhost:3001/auth/signUp", {
+          fetch("http://localhost:3001/auth/login", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              fullName: values.name,
               username: values.username,
               password: values.password,
             }),
@@ -66,36 +62,14 @@ const SignUp: FC = () => {
                     <Field
                       className={classes.field}
                       type="text"
-                      name="name"
-                      placeholder="Enter your name ..."
+                      name="username"
+                      placeholder="Enter your username ... "
                       label={"Name"}
-                      // helperText={touched.name ? errors.name : ""}
-                      error={!!errors.name && touched.name}
                       onBlur={handleBlur}
-                      value={values.name}
+                      value={values.username}
                       onChange={(e: any) =>
                         setFieldValue("name", e.currentTarget.value)
                       }
-                    />
-                    {touched.name && errors.name ? (
-                      <Typography
-                        variant="body2"
-                        className={classes.helpertext}
-                        style={{ color: errors.name ? "#B00020" : "#444" }}
-                      >
-                        {errors.name}
-                      </Typography>
-                    ) : (
-                      <Typography className={classes.helpertext}></Typography>
-                    )}
-                  </Grid>
-
-                  <Grid className={classes.fieldContainer}>
-                    <Field
-                      className={classes.field}
-                      type="text"
-                      name="username"
-                      placeholder="Enter your username ... "
                     />
                     {touched.username && errors.username ? (
                       <Typography
@@ -115,6 +89,12 @@ const SignUp: FC = () => {
                       type="password"
                       name="password"
                       placeholder="Enter your password ..."
+                      label={"Name"}
+                      onBlur={handleBlur}
+                      value={values.password}
+                      onChange={(e: any) =>
+                        setFieldValue("name", e.currentTarget.value)
+                      }
                     />
                     {touched.password && errors.password ? (
                       <Typography
@@ -128,35 +108,14 @@ const SignUp: FC = () => {
                       <Typography className={classes.helpertext}></Typography>
                     )}
                   </Grid>
-                  <Grid className={classes.fieldContainer}>
-                    <Field
-                      className={classes.field}
-                      type="password"
-                      name="confirmPassword"
-                      placeholder="confirm password ..."
-                    />
-                    {touched.confirmPassword && errors.confirmPassword ? (
-                      <Typography
-                        variant="body2"
-                        className={classes.helpertext}
-                        style={{
-                          color: errors.confirmPassword ? "#B00020" : "#444",
-                        }}
-                      >
-                        {errors.confirmPassword}
-                      </Typography>
-                    ) : (
-                      <Typography className={classes.helpertext}></Typography>
-                    )}
-                  </Grid>
 
-                  <Button type="submit" className={classes.signUpBTN}>
-                    Sign Up
+                  <Button type="submit" className={classes.loginBTN}>
+                    Login
                   </Button>
                   <Typography variant="body2" className={classes.noAccount}>
-                    already have an account?&nbsp;&nbsp;&nbsp;
-                    <Link to="/login" className={classes.signUp}>
-                      login
+                    you don't have an account?&nbsp;&nbsp;&nbsp;
+                    <Link to="/signup" className={classes.signUp}>
+                      create one
                     </Link>
                   </Typography>
                 </Grid>
@@ -169,4 +128,4 @@ const SignUp: FC = () => {
   );
 };
 
-export default SignUp;
+export default Login;

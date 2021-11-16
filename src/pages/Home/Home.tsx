@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { Header } from "../components/Header";
+import { Header } from "../../components/Header";
 import { Grid } from "@material-ui/core";
 import useStyles from "./Home.styles";
-import Products from "./Products";
+import Products from "../Products/Products";
 
 const Home: FC = () => {
   const classes = useStyles();

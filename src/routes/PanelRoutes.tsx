@@ -1,7 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
-import Cart from "../pages/Cart";
-import Home from "../pages/Home";
-import Profile from "../pages/Profile";
+import Cart from "../pages/Cart/Cart";
+import Home from "../pages/Home/Home";
+import Profile from "../pages/Profile/Profile";
 import MainRoutes from "./MainRoutes";
 
 const PanelRoutes = () => {

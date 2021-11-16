@@ -21,7 +21,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     console.log({ token });
 
     setToken(token);
-    localStorage.setItem("mode", token);
+    localStorage.setItem("token", token);
   };
 
   return (

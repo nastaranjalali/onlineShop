@@ -88,6 +88,11 @@ const useStyles = makeStyles({
       color: "#fff",
     },
   },
+  helpertext: {
+    textAlign: "left",
+    width: 400,
+  },
+  fieldContainer: { marginBottom: 10, width: "100p%" },
 });
 
 export default useStyles;

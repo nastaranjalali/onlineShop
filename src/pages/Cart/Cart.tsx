@@ -1,10 +1,10 @@
 import useStyles from "./Cart.styles";
 import { FC } from "react";
 import { Grid } from "@material-ui/core";
-import CartProductCard from "../components/CartProductCard";
-import Sidebar from "../components/Sidebar";
-import samplePhoto from "../assets/samplePhoto.jpg";
-import Header from "../components/Header";
+import CartProductCard from "../../components/CartProductCard";
+import Sidebar from "../../components/Sidebar";
+import samplePhoto from "../../assets/samplePhoto.jpg";
+import Header from "../../components/Header";
 
 interface Props {}
 const Cart: FC<Props> = () => {

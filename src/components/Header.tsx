@@ -9,9 +9,11 @@ import useStyles from "./Header.styles";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 export const Header: FC = () => {
   const classes = useStyles();
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const { token } = useContext(AuthContext);
 
   return (
     <div
@@ -44,7 +46,7 @@ export const Header: FC = () => {
             Sample Logo
           </Typography>
         </Link>
-        {localStorage.getItem("token") ? (
+        {token ? (
           <Grid>
             <Link to="/profile" className={classes.profilelink}>
               <Typography className={classes.usersname} variant="body2">

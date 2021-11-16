@@ -1,8 +1,8 @@
 import useStyles from "./Products.styles";
 import { FC } from "react";
 import { Grid } from "@material-ui/core";
-import ProductCard from "../components/ProductCard";
-import samplePhoto from "../assets/samplePhoto.jpg";
+import ProductCard from "../../components/ProductCard";
+import samplePhoto from "../../assets/samplePhoto.jpg";
 import Pagination from "@material-ui/lab/Pagination";
 import PaginationItem from "@material-ui/lab/PaginationItem";
 import { Link } from "react-router-dom";

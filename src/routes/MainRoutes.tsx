@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
 import React from "react";
-import Home from "../pages/Home";
-import Cart from "../pages/Cart";
+import Home from "../pages/Home/Home";
+import Cart from "../pages/Cart/Cart";
 
 const MainRoutes = (url: string) => {
   return (
