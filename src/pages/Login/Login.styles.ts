@@ -32,7 +32,6 @@ const useStyles = makeStyles({
         : "4px solid #046e49",
     height: 38,
     outline: "none",
-    marginBottom: 40,
     color: localStorage.getItem("mode") === "dark" ? "#fff" : "#fff",
     transition: "300ms",
     fontSize: 18,
@@ -92,7 +91,7 @@ const useStyles = makeStyles({
     textAlign: "left",
     width: 400,
   },
-  fieldContainer: { marginBottom: 10, width: "100p%" },
+  fieldContainer: { marginBottom: 20, width: "100p%" },
 });
 
 export default useStyles;

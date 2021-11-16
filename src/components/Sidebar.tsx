@@ -2,7 +2,7 @@ import { Button, Grid } from "@material-ui/core";
 import { FC } from "react";
 import useStyles from "./Sidebar.styles";
 import { Formik, Form, Field } from "formik";
-import { schema } from "../pages/validation";
+// import { schema } from "../pages/validation";
 import Select from "react-select";
 
 interface Login {
@@ -48,7 +48,7 @@ const Sidebar: FC = () => {
     <Grid item xs={12} className={classes.root}>
       <Formik
         initialValues={initialValues}
-        validationSchema={schema}
+        // validationSchema={schema}
         onSubmit={(values) => {
           console.log({ values });
         }}

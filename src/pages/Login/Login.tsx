@@ -1,9 +1,11 @@
 import useStyles from "./Login.styles";
-import { FC } from "react";
+import { FC, useContext, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { Button, Grid, Typography } from "@material-ui/core";
-import { schema } from "../validation";
+import { LoginSchema } from "../validation";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+
 interface LogIn {
   username: string;
   password: string;
@@ -17,11 +19,14 @@ const initialValues: LogIn = {
 interface Props {}
 const Login: FC<Props> = () => {
   const classes = useStyles();
+  const { login, setfullName } = useContext(AuthContext);
+  const [serverErrors, setServerErrors] = useState<string | null>("");
+
   return (
     <>
       <Formik
         initialValues={initialValues}
-        validationSchema={schema}
+        validationSchema={LoginSchema}
         onSubmit={(values) => {
           let status: Number;
           fetch("http://localhost:3001/auth/login", {
@@ -39,15 +44,13 @@ const Login: FC<Props> = () => {
               return response.json();
             })
             .then((responseJson) => {
-              if (status === 400) {
-                responseJson.errors.forEach((error: { key: string }) => {
-                  if (error.key === "fullName") {
-                  } else if (error.key === "username") {
-                  } else if (error.key === "password") {
-                  }
-                });
-              } else if (status === 409) {
-              } else if (status === 201) {
+              if (status === 409) {
+                setServerErrors(responseJson.errors[0].errorText);
+                console.log(responseJson.errors[0].errorText);
+              } else if (status === 200) {
+                login(responseJson.token);
+                setfullName(responseJson.fullName);
+                console.log(responseJson);
               }
             });
           console.log({ values });
@@ -64,11 +67,11 @@ const Login: FC<Props> = () => {
                       type="text"
                       name="username"
                       placeholder="Enter your username ... "
-                      label={"Name"}
+                      label={"Username"}
                       onBlur={handleBlur}
                       value={values.username}
                       onChange={(e: any) =>
-                        setFieldValue("name", e.currentTarget.value)
+                        setFieldValue("username", e.currentTarget.value)
                       }
                     />
                     {touched.username && errors.username ? (
@@ -80,7 +83,13 @@ const Login: FC<Props> = () => {
                         {errors.username}
                       </Typography>
                     ) : (
-                      <Typography className={classes.helpertext}></Typography>
+                      <Typography
+                        variant="body2"
+                        className={classes.helpertext}
+                        style={{ color: "#B00020" }}
+                      >
+                        {serverErrors}
+                      </Typography>
                     )}
                   </Grid>
                   <Grid className={classes.fieldContainer}>
@@ -89,11 +98,11 @@ const Login: FC<Props> = () => {
                       type="password"
                       name="password"
                       placeholder="Enter your password ..."
-                      label={"Name"}
+                      label={"Password"}
                       onBlur={handleBlur}
                       value={values.password}
                       onChange={(e: any) =>
-                        setFieldValue("name", e.currentTarget.value)
+                        setFieldValue("password", e.currentTarget.value)
                       }
                     />
                     {touched.password && errors.password ? (
@@ -105,7 +114,13 @@ const Login: FC<Props> = () => {
                         {errors.password}
                       </Typography>
                     ) : (
-                      <Typography className={classes.helpertext}></Typography>
+                      <Typography
+                        variant="body2"
+                        className={classes.helpertext}
+                        style={{ color: "#B00020" }}
+                      >
+                        {serverErrors}
+                      </Typography>
                     )}
                   </Grid>
 

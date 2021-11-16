@@ -2,7 +2,7 @@ import useStyles from "./SignUp.styles";
 import { FC } from "react";
 import { Formik, Form, Field } from "formik";
 import { Button, Grid, Typography } from "@material-ui/core";
-import { schema } from "../validation";
+import { SignUpSchema } from "../validation";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
@@ -27,7 +27,7 @@ const SignUp: FC = () => {
     <>
       <Formik
         initialValues={initialValues}
-        validationSchema={schema}
+        validationSchema={SignUpSchema}
         onSubmit={(values) => {
           let status: Number;
           fetch("http://localhost:3001/auth/signUp", {
