@@ -13,6 +13,8 @@ interface Props {
 }
 const CartProductCard: FC<Props> = ({ title, img, price }) => {
   const classes = useStyles();
+  console.log(img);
+
   return (
     <Grid item xs={12} className={classes.root}>
       <Card className={classes.card}>

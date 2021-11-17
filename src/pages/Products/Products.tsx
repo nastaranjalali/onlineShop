@@ -1,5 +1,5 @@
 import useStyles from "./Products.styles";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import ProductCard from "../../components/ProductCard";
 import samplePhoto from "../../assets/samplePhoto.jpg";
@@ -10,22 +10,44 @@ import { MemoryRouter, Route } from "react-router";
 interface Props {}
 const Products: FC<Props> = () => {
   const classes = useStyles();
+  const [products, setProducts] = useState([
+    {
+      name: "dsfsfd",
+      price: 10000,
+      img: "../../assets/samplePhoto.jpg",
+      _id: "ss",
+    },
+  ]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    fetch("http://localhost:3001/main/products/get")
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setProducts(responseJson.products);
+        setLoading(false);
+        console.log(products);
+      });
+  }, []);
   return (
     <Grid container className={classes.root}>
       <Grid container className={classes.productContainer}>
-        <ProductCard title="sample Title" price={23000} img={samplePhoto} />
-        <ProductCard title="sample Title" price={20000} img={samplePhoto} />
-        <ProductCard title="sample Title" price={20000} img={samplePhoto} />
-        <ProductCard title="sample Title" price={20000} img={samplePhoto} />
-        <ProductCard title="sample Title" price={20000} img={samplePhoto} />
-        <ProductCard title="sample Title" price={20000} img={samplePhoto} />
-        <ProductCard title="sample Title" price={20000} img={samplePhoto} />
-        <ProductCard title="sample Title" price={20000} img={samplePhoto} />
-        <ProductCard title="sample Title" price={20000} img={samplePhoto} />
-        <ProductCard title="sample Title" price={20000} img={samplePhoto} />
-        <ProductCard title="sample Title" price={20000} img={samplePhoto} />
-        <ProductCard title="sample Title" price={20000} img={samplePhoto} />
-      </Grid>{" "}
+        {loading ? (
+          <span>loading ... </span>
+        ) : (
+          products.map((product) => {
+            // import image from product.img
+            return (
+              <ProductCard
+                key={product._id}
+                title={product.name}
+                price={product.price}
+                img={product.img}
+              />
+            );
+          })
+        )}
+      </Grid>
       <MemoryRouter initialEntries={["/inbox"]} initialIndex={0}>
         <Route>
           {({ location }) => {
