@@ -14,7 +14,7 @@ const Products: FC<Props> = () => {
     {
       name: "dsfsfd",
       price: 10000,
-      img: "../../assets/samplePhoto.jpg",
+      img: "../../assets/samlePhoto.jpg",
       _id: "ss",
     },
   ]);
@@ -37,6 +37,8 @@ const Products: FC<Props> = () => {
         ) : (
           products.map((product) => {
             // import image from product.img
+            console.log(product.img);
+
             return (
               <ProductCard
                 key={product._id}
