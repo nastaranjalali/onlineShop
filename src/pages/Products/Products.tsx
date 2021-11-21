@@ -2,14 +2,16 @@ import useStyles from "./Products.styles";
 import { FC, useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import ProductCard from "../../components/ProductCard";
-import samplePhoto from "../../assets/samplePhoto.jpg";
 import Pagination from "@material-ui/lab/Pagination";
-import PaginationItem from "@material-ui/lab/PaginationItem";
-import { Link } from "react-router-dom";
 import { MemoryRouter, Route } from "react-router";
 interface Props {}
 const Products: FC<Props> = () => {
   const classes = useStyles();
+
+  const handleChange = (event: any, value: any) => {
+    setPage(value);
+    console.log(page);
+  };
   const [products, setProducts] = useState([
     {
       name: "dsfsfd",
@@ -18,17 +20,27 @@ const Products: FC<Props> = () => {
       _id: "ss",
     },
   ]);
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(8);
   const [loading, setLoading] = useState(false);
+  const [pages, setPages] = useState(1);
+
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3001/main/products/get")
+    fetch(
+      "http://localhost:3001/main/products/paginate?page=" +
+        page +
+        "&limit=" +
+        limit
+    )
       .then((response) => response.json())
       .then((responseJson) => {
-        setProducts(responseJson.products);
+        setProducts(responseJson.results);
+        setPages(responseJson.pages.pages);
         setLoading(false);
         console.log(products);
       });
-  }, []);
+  }, [page]);
   return (
     <Grid container className={classes.root}>
       <Grid container className={classes.productContainer}>
@@ -53,21 +65,13 @@ const Products: FC<Props> = () => {
       <MemoryRouter initialEntries={["/inbox"]} initialIndex={0}>
         <Route>
           {({ location }) => {
-            const query = new URLSearchParams(location.search);
-            const page = parseInt(query.get("page") || "1", 10);
             return (
               <Pagination
                 className={classes.pagination}
                 page={page}
-                count={10}
+                count={pages}
                 color="primary"
-                renderItem={(item) => (
-                  <PaginationItem
-                    component={Link}
-                    to={`/inbox${item.page === 1 ? "" : `?page=${item.page}`}`}
-                    {...item}
-                  />
-                )}
+                onChange={handleChange}
               />
             );
           }}
