@@ -9,6 +9,7 @@ const AuthRoutes = () => {
       <Route path="/" exact component={Home} />
       <Route path="/login" exact component={Login} />
       <Route path="/signup" exact component={SignUp} />
+      <Route path="/cart" exact component={Login} />
       <Redirect to="/" />
     </>
   );
