@@ -13,8 +13,9 @@ interface Props {
   title: string;
   img: string;
   price: Number;
+  addFunc: (name: string, quantity: Number) => void;
 }
-const ProductCard: FC<Props> = ({ title, img, price }) => {
+const ProductCard: FC<Props> = ({ title, img, price, addFunc }) => {
   const classes = useStyles();
   const { theme } = useContext(ThemeContext);
 
@@ -27,6 +28,9 @@ const ProductCard: FC<Props> = ({ title, img, price }) => {
             aria-label="settings"
             className={classes.iconBTN}
             style={{ backgroundColor: theme === "dark" ? "#424242" : "#fff" }}
+            onClick={() => {
+              addFunc(title, 1);
+            }}
           >
             <AddShoppingCartIcon />
           </IconButton>

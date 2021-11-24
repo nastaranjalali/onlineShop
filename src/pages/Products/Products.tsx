@@ -41,6 +41,23 @@ const Products: FC<Props> = () => {
         console.log(products);
       });
   }, [page]);
+  const addFunc = (name: string, quantity: Number) => {
+    fetch("http://localhost:3001/panel/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": localStorage.token,
+      },
+      body: JSON.stringify({
+        name,
+        quantity,
+      }),
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(products);
+      });
+  };
   return (
     <Grid container className={classes.root}>
       <Grid container className={classes.productContainer}>
@@ -57,6 +74,7 @@ const Products: FC<Props> = () => {
                 title={product.name}
                 price={product.price}
                 img={product.img}
+                addFunc={addFunc}
               />
             );
           })
