@@ -17,9 +17,6 @@ const Cart: FC<Props> = () => {
       _id: "ss",
     },
   ]);
-  // const requestHeaders: HeadersInit = new Headers();
-  // requestHeaders.set("Content-Type", "application/json");
-  // requestHeaders.set("x-access-token", localStorage.getItem("token"));
 
   useEffect(() => {
     setLoading(true);
@@ -37,6 +34,19 @@ const Cart: FC<Props> = () => {
         console.log(products);
       });
   }, []);
+  const deleteFunc = (productID: string) => {
+    fetch("http://localhost:3001/panel/cart/" + productID, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": localStorage.token,
+      },
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(products);
+      });
+  };
   return (
     <Grid container className={classes.root}>
       <Header />
@@ -54,6 +64,8 @@ const Cart: FC<Props> = () => {
                 title={product.name}
                 price={product.price}
                 img={product.img}
+                productID={product._id}
+                deleteFunc={deleteFunc}
               />
             );
           })

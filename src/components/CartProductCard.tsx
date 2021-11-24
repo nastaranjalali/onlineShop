@@ -10,8 +10,16 @@ interface Props {
   title: string;
   img: string;
   price: Number;
+  productID: string;
+  deleteFunc: (productID: string) => void;
 }
-const CartProductCard: FC<Props> = ({ title, img, price }) => {
+const CartProductCard: FC<Props> = ({
+  title,
+  img,
+  price,
+  productID,
+  deleteFunc,
+}) => {
   const classes = useStyles();
   console.log(img);
 
@@ -26,7 +34,11 @@ const CartProductCard: FC<Props> = ({ title, img, price }) => {
           <Typography variant="h2" color="textSecondary" component="p">
             price : {price}
           </Typography>
-          <IconButton aria-label="settings" className={classes.iconBTN}>
+          <IconButton
+            aria-label="settings"
+            className={classes.iconBTN}
+            onClick={() => deleteFunc(productID)}
+          >
             <DeleteIcon />
           </IconButton>
         </CardContent>
