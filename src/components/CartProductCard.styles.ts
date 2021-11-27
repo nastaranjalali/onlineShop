@@ -48,6 +48,17 @@ const useStyles = makeStyles({
       right: -40,
     },
   },
+  counterContainer: {
+    position: "absolute",
+    top: 0,
+    display: "flex",
+    justifyContent: "stretch",
+    alignItems: "center",
+    height: "100%",
+  },
+  title: {
+    marginBottom: 20,
+  },
 });
 
 export default useStyles;

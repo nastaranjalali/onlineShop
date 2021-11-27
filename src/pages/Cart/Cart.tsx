@@ -15,6 +15,7 @@ const Cart: FC<Props> = () => {
       price: 10000,
       img: "../../assets/samlePhoto.jpg",
       _id: "ss",
+      count: 0,
     },
   ]);
 
@@ -55,7 +56,6 @@ const Cart: FC<Props> = () => {
           <span>loading ... </span>
         ) : (
           products.map((product) => {
-            // import image from product.img
             console.log(product.img);
 
             return (
@@ -66,6 +66,7 @@ const Cart: FC<Props> = () => {
                 img={product.img}
                 productID={product._id}
                 deleteFunc={deleteFunc}
+                initialValue={product.count}
               />
             );
           })

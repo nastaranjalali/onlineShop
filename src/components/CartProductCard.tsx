@@ -5,13 +5,15 @@ import Typography from "@material-ui/core/Typography";
 import { Grid, IconButton } from "@material-ui/core";
 import { FC } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
+import IncrementDecrementButton from "./IncrementDecrementButton";
 import useStyles from "./CartProductCard.styles";
 interface Props {
   title: string;
   img: string;
-  price: Number;
+  price: number;
   productID: string;
   deleteFunc: (productID: string) => void;
+  initialValue: number;
 }
 const CartProductCard: FC<Props> = ({
   title,
@@ -19,6 +21,7 @@ const CartProductCard: FC<Props> = ({
   price,
   productID,
   deleteFunc,
+  initialValue,
 }) => {
   const classes = useStyles();
   console.log(img);
@@ -34,6 +37,10 @@ const CartProductCard: FC<Props> = ({
           <Typography variant="h2" color="textSecondary" component="p">
             price : {price}
           </Typography>
+          <Grid className={classes.counterContainer}>
+            <IncrementDecrementButton initialValue={initialValue} />
+          </Grid>
+
           <IconButton
             aria-label="settings"
             className={classes.iconBTN}
