@@ -4,6 +4,8 @@ import { Grid } from "@material-ui/core";
 import ProductCard from "../../components/ProductCard";
 import Pagination from "@material-ui/lab/Pagination";
 import { MemoryRouter, Route } from "react-router";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 interface Props {}
 const Products: FC<Props> = () => {
   const classes = useStyles();
@@ -24,6 +26,17 @@ const Products: FC<Props> = () => {
   const [limit, setLimit] = useState(8);
   const [loading, setLoading] = useState(false);
   const [pages, setPages] = useState(1);
+  const addedToast = () => {
+    toast.success("added to cart!", {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -55,7 +68,9 @@ const Products: FC<Props> = () => {
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(products);
+        if (responseJson.added) {
+          addedToast();
+        }
       });
   };
   return (

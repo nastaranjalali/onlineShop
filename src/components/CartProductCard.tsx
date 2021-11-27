@@ -30,11 +30,16 @@ const CartProductCard: FC<Props> = ({
     <Grid item xs={12} className={classes.root}>
       <Card className={classes.card}>
         <CardContent className={classes.content}>
-          <Typography variant="h1" color="textSecondary" component="p">
+          <Typography
+            variant="h1"
+            color="textSecondary"
+            component="p"
+            style={{ marginBottom: 15 }}
+          >
             {title}
           </Typography>
 
-          <Typography variant="h2" color="textSecondary" component="p">
+          <Typography variant="h6" color="textSecondary" component="p">
             price : {price}
           </Typography>
           <Grid className={classes.counterContainer}>
