@@ -11,6 +11,9 @@ interface Login {
   delivery: string;
   payment: string;
 }
+interface Props {
+  totalPrice: Number;
+}
 
 const initialValues: Login = {
   email: "",
@@ -19,7 +22,7 @@ const initialValues: Login = {
   payment: "",
 };
 
-const Sidebar: FC = () => {
+const Sidebar: FC<Props> = ({ totalPrice }) => {
   //   const customStyles = {
   //     option: (provided: any, state: { isSelected: any }) => ({
   //       ...provided,
@@ -89,7 +92,7 @@ const Sidebar: FC = () => {
                   />
 
                   <Button type="submit" className={classes.signUpBTN}>
-                    checkOut(239$)
+                    checkOut({totalPrice}$)
                   </Button>
                 </Grid>
               </Form>

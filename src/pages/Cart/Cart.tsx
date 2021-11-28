@@ -9,6 +9,8 @@ interface Props {}
 const Cart: FC<Props> = () => {
   const classes = useStyles();
   const [loading, setLoading] = useState(false);
+  const [deleted, setDeleted] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([
     {
       name: "dsfsfd",
@@ -32,9 +34,21 @@ const Cart: FC<Props> = () => {
       .then((responseJson) => {
         setProducts(responseJson.products);
         setLoading(false);
-        console.log(products);
+        responseJson.products.forEach((element: any) => {
+          console.log(
+            "price : " +
+              element.price +
+              " count : " +
+              element.count +
+              "result : " +
+              typeof element.price +
+              typeof element.count
+          );
+          setTotalPrice(totalPrice + element.price * element.count);
+          console.log(typeof totalPrice);
+        });
       });
-  }, []);
+  }, [deleted]);
   const deleteFunc = (productID: string) => {
     fetch("http://localhost:3001/panel/cart/" + productID, {
       method: "DELETE",
@@ -45,7 +59,9 @@ const Cart: FC<Props> = () => {
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(products);
+        if (responseJson.deleted) {
+          setDeleted(!deleted);
+        }
       });
   };
   return (
@@ -73,7 +89,7 @@ const Cart: FC<Props> = () => {
         )}
       </Grid>
       <Grid item className={classes.sidebarContainer} xs={12} md={4}>
-        <Sidebar />
+        <Sidebar totalPrice={totalPrice} />
       </Grid>
     </Grid>
   );
